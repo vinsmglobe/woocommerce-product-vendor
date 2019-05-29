@@ -72,9 +72,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php do_action( 'wcpv_registration_form' ); ?>
 
 	<p class="form-row">
-		<input type="submit" class="button" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce-product-vendors' ); ?>" tabindex="8" />
+		<input type="submit" class="button" name="register" onclick="return slug_post_form_submit();" value="<?php esc_attr_e( 'Register', 'woocommerce-product-vendors' ); ?>" tabindex="8" />
 	</p>
 
 	<?php do_action( 'wcpv_registration_form_end' ); ?>
 
 </form>
+<script type="text/javascript">
+function slug_post_form_submit() {
+	ga('send', 'event', { eventCategory: 'form', eventAction: 'input', eventLabel: 'artist-register'});
+	console.log('form submit');	
+}
+</script>
